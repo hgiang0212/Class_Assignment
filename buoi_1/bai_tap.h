@@ -10,15 +10,18 @@
  */
 uint8_t update_control(uint8_t reg, uint8_t enable, uint8_t mode);
 
-/* TODO (các em): Khai báo typedef enum FanState với hai giá trị
- * FAN_OFF = 0 và FAN_ON = 1.
- */
+typedef enum FanState
+{
+    FAN_OFF = 0,
+    FAN_ON = 1,
+} FanState;
 
-/* TODO (các em): Khai báo typedef struct FanResult với ba trường:
- * FanState final_state;
- * size_t on_count;
- * size_t transition_count;
- */
+typedef struct FanResult
+{
+    FanState final_state;
+    size_t on_count;
+    size_t transition_count;
+} FanResult;
 
 /* Bài 2: Xử lý count nhiệt độ theo thứ tự trong temperatures.
  * Trạng thái ban đầu là FAN_OFF. Đếm on_count sau mỗi lần xử lý.
